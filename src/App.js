@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -6,6 +7,7 @@ import MyPackages from "./components/MyPackages";
 import CustomPackage from "./components/CustomPackage";
 import AboutUs from "./components/AboutUs";
 import PackageDetail from "./components/PackageDetail";
+import { ProtectedRoute } from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -13,13 +15,13 @@ function App() {
 		<div className='App'>
 			<Router>
 				<Routes>
-					<Route path="/" element={<Home />}/>
-					<Route path="/login" element={<Login />}/>
-					<Route path="/register" element={<Register />}/>
-					<Route path="/mypackages" element={<MyPackages />}/>
-					<Route path="/custompackage" element={<CustomPackage />}/>
-					<Route path="/about" element={<AboutUs />}/>
-					<Route path="/:id" element={<PackageDetail />}/>
+					<Route exact path="/" element={<ProtectedRoute component={Home} />}/>
+					<Route exact path="/login" element={<Login />}/>
+					<Route exact path="/register" element={<Register />}/>
+					<Route exact path="/mypackages" element={<ProtectedRoute component={MyPackages} />}/>
+					<Route exact path="/custompackage" element={<ProtectedRoute component={CustomPackage} />}/>
+					<Route exact path="/about" element={<ProtectedRoute component={AboutUs} />}/>
+					<Route path="/:id" element={<ProtectedRoute component={PackageDetail} />}/>
 				</Routes>
 			</Router>
 		</div>
