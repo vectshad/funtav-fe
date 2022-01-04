@@ -1,10 +1,12 @@
 import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "../styles/Register.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Register() {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -19,6 +21,7 @@ function Register() {
             })
             .then((response) => {
                 console.log(response.data);
+                navigate("/");
             }, (error) => {
                 console.log(error);
         });
