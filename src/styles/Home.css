@@ -1,28 +1,121 @@
+.Container {
+    background:white;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    height: auto;
+    width: 60%;
+}
+
+.Package {
+    display: flex;
+    margin-bottom: 30px;
+    border: 2px solid #c9c9c9;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.Package:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Detail {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.City {
+    grid-row: 1;
+    grid-column: 2/2;
+}
+
+.Hotel {
+    grid-row: 2;
+    grid-column: 2/6;
+}
+
+.CheckIn {
+    grid-row: 3;
+    grid-column: 2/5;
+}
+
+.CheckOut {
+    grid-row: 3;
+    grid-column: 5/9;
+}
+
+.Person {
+    grid-row: 2;
+    grid-column: 8/10;
+}
+
+.Price {
+    grid-row: 3;
+    grid-column: 8/12;
+}
+
+.Transport {
+    grid-row: 2;
+    grid-column: 10/12;
+}
+
+.Order {
+    grid-row: 4;
+    grid-column: 11/12;
+}
+
+.Order button {
+    background: #5fb1e5;
+    color: white;
+    padding: 20px 30px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Order button:hover {
+    opacity: 80%;
+}
+
+img {
+    float: left;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+}
+
 .pagination {
     margin: 15px auto;
     display: flex;
     list-style: none;
     outline: none;
+    align-items: center;
+    justify-content: center;
   }
-  .pagination > .active > a{
-    background-color: #47ccde ;
-    border-color: #47ccde ;
-    color: #fff;
-  }
-  .pagination > li > a{
-    border: 1px solid #47ccde ;
-    padding: 5px 10px;
-    outline: none;
-    cursor: pointer;
-  }
-  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: #47ccde ;
-    border-color: #47ccde;
-    outline: none ;
-  }
-  .pagination > li > a, .pagination > li > span{
-    color: #47ccde
-  }
-  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-    border-radius: unset
-  }
+.pagination :hover{
+    background-color: #5fb1e5 ;
+    color:white;
+}
+.pagination > .active > a{
+background-color: #5fb1e5 ;
+border-color: #5fb1e5 ;
+color: #fff;
+}
+.pagination > li > a{
+border: 1px solid #5fb1e5 ;
+padding: 5px 10px;
+outline: none;
+cursor: pointer;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+background-color: #5fb1e5 ;
+border-color: #5fb1e5;
+outline: none ;
+}
+.pagination > li > a, .pagination > li > span{
+color: #5fb1e5;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+border-radius: unset
+}

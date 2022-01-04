@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import "../styles/Home.css";
 
 function Home() {
@@ -31,24 +32,62 @@ function Home() {
       }, [offset])
     
     if (packages.length === 0) return 'Loading...';
+
     return (
         <div>
             <Navbar/>
-            <h1>HOME</h1>
-
-            <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
+            <h1>Funtav Travel and Tour</h1>
+            <div className="Container">
+                {packages.map((pkg, index) => 
+                    <div key={index} className="Package">
+                        <Link to={{pathname: `/${pkg.city}`}}>
+                            <img src={pkg.img} alt="package"/>
+                        </Link>
+                        <div className="Detail">
+                            <div className='City'>
+                                <h3>{pkg.city}</h3>
+                            </div>
+                            <div className='Hotel'>
+                                <p>{pkg.hotel}</p>
+                            </div>
+                            <div className='CheckIn'>
+                                <p>Check In</p>
+                                {(new Date(pkg.check_in.seconds * 1000).toDateString())}
+                            </div>
+                            <div className='CheckOut'>
+                                <p>Check Out</p>
+                                {(new Date(pkg.check_out.seconds * 1000).toDateString())}
+                            </div>
+                            <div className='Person'>
+                                <p>Person: {pkg.person}</p>
+                            </div>
+                            <div className='Transport'>
+                                <p>Transport: {pkg.person}</p>
+                            </div>
+                            <div className='Price'>
+                                <p>Price {pkg.price}</p>
+                            </div>
+                            <div className='Order'>
+                                <button>Order</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                <ReactPaginate
+                        previousLabel={"prev"}
+                        nextLabel={"next"}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}/>
+            </div>
         </div>
+
     )
 }
 
