@@ -40,7 +40,7 @@ function Home() {
     return (
         <div>
             <Navbar/>
-            <h1 className='mb-5 mt-3'>Funtav Travel and Tour</h1>
+            <h1 className='mb-5 mt-3'>Fun Tav Travel and Tour</h1>
             <div className="Container">
                 {packages.map((pkg, index) => 
                     <div key={index} className="Package">

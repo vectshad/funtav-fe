@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <div className="Navbar">
             <Link to="/">
-                <h2>Funtav</h2>
+                <h2>Fun Tav</h2>
             </Link>
             <Link to="/">
                 <button>Home</button>
