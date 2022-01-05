@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 function CustomPackage() {
     const [Budget, setBudget] = useState();
+    const [City, setCity] = useState();
     const [Transport, setTransport] = useState();
     const [Lodging, setLodging] = useState();
     const [FoodReference, setFoodReference] = useState();
@@ -18,16 +19,9 @@ function CustomPackage() {
         const user_id = localStorage.getItem("user_id");
 
         e.preventDefault();
-        console.log(Budget);
-        console.log(Transport);
-        console.log(Lodging);
-        console.log(FoodReference);
-        console.log(Tour);
-        console.log(Schedule);
-        console.log(Person);
-        console.log(MedicalRecords);
         await axios.post('https://funtav-api.herokuapp.com/order/custom', {
             user_id: user_id,
+            city: City,
             budget: Budget,
             transport: Transport,
             lodging: Lodging,
@@ -56,11 +50,15 @@ function CustomPackage() {
                     <input onChange={e => setBudget(e.target.value)} type="number" className="form-control" placeholder="Enter Budget"/>
                 </div>
                 <div className="form-group">
+                    <label>City</label>
+                    <input onChange={e => setCity(e.target.value)} type="text" className="form-control" placeholder="Enter City"/>
+                </div>
+                <div className="form-group">
                     <label >Transport</label>
                     <select onChange={e => setTransport(e.target.value)} className="form-control">
                         <option value={null}>Choose...</option>
                         <option>Car</option>
-                        <option>Motorcycle</option>
+                        <option>Plane</option>
                     </select>
                 </div>
                 <div className="form-group">
