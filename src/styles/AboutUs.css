@@ -1,0 +1,11 @@
+.About {
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 5px;
+    text-align: justify;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
