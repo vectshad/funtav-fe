@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import axios from 'axios';
 import "../styles/CustomPackage.css";
 import { useState } from 'react';
 
@@ -13,7 +14,9 @@ function CustomPackage() {
     const [Person, setPerson] = useState();
     const [MedicalRecords, setMedicalRecords] = useState();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        const user_id = localStorage.getItem("user_id");
+
         e.preventDefault();
         console.log(Budget);
         console.log(Transport);
@@ -23,6 +26,23 @@ function CustomPackage() {
         console.log(Schedule);
         console.log(Person);
         console.log(MedicalRecords);
+        await axios.post('https://funtav-api.herokuapp.com/order/custom', {
+            user_id: user_id,
+            budget: Budget,
+            transport: Transport,
+            lodging: Lodging,
+            food_reference: FoodReference,
+            tour: Tour,
+            schedule: Schedule,
+            person: Person,
+            medical_records: MedicalRecords
+        })
+        .then((response) => {
+            console.log(response.data);
+            alert("New Custom Order Added !");
+        }, (error) => {
+            console.log(error);
+        });
     }
 
     return (
