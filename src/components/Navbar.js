@@ -4,7 +4,10 @@ import "../styles/Navbar.css";
 
 function Navbar() {
     return (
-        <div className="navbar">
+        <div className="Navbar">
+            <Link to="/">
+                <h2>Funtav</h2>
+            </Link>
             <Link to="/">
                 <button>Home</button>
             </Link>
@@ -16,6 +19,9 @@ function Navbar() {
             </Link>
             <Link to="/about">
                 <button>About Us</button>
+            </Link>
+            <Link to="/logout">
+                <button className="Logout" onClick={ () => localStorage.clear()}>Log out</button>
             </Link>
         </div>
     )
