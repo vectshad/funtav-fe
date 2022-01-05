@@ -1,12 +1,13 @@
 import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "../styles/Login.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Login({setToken}) {
+function Login() {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("");
 
     const loginUser = async() => {
         await axios.post('https://funtav-api.herokuapp.com/user/validate', {
@@ -15,7 +16,9 @@ function Login({setToken}) {
             })
             .then((response) => {
                 console.log(response.data.name);
-                setToken(response.data.name);
+                localStorage.setItem("user_id", response.data.id);
+                localStorage.setItem("isAuthenticated", "true");
+                navigate("/");
             }, (error) => {
                 console.log(error);
         });
