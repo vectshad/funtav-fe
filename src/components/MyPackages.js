@@ -102,11 +102,6 @@ function MyPackages() {
                             <div className='Price'>
                                 <p>Price {pkg.price}</p>
                             </div>
-                            <div className='Order'>
-                                <Link to={{pathname: `/${pkg.id}`}}>
-                                    <button>Order</button>
-                                </Link>
-                            </div>
                         </div>
                     </div>
                 )}
