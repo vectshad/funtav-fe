@@ -12,14 +12,18 @@ function Home() {
     const [pageCount, setPageCount] = useState(0);
 
     const getPackages = async () => {
-        const res = await axios.get("https://funtav-api.herokuapp.com/package");
-        const data = res.data;
-        
-        if (data) {
-            console.log(data)
-            const slice = data.slice(offset, offset + perPage);
-            setPackages(slice);
-            setPageCount(Math.ceil(data.length / perPage));    
+        try {
+            const res = await axios.get("https://funtav-api.herokuapp.com/package");
+            const data = res.data;
+            
+            if (data) {
+                // console.log(data)
+                const slice = data.slice(offset, offset + perPage);
+                setPackages(slice);
+                setPageCount(Math.ceil(data.length / perPage));    
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
     const handlePageClick = (e) => {
@@ -31,7 +35,7 @@ function Home() {
         getPackages();
       }, [offset])
     
-    if (packages.length === 0) return 'Loading...';
+    if (packages.length === 0) return null;
 
     return (
         <div>
