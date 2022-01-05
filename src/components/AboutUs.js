@@ -12,7 +12,7 @@ function AboutUs() {
                 Fun Tav is specialized on making custom tour and travel inquiries based on customer’s. Mr. Vijay is the owner of FunTav, a travel and tour companies which has been established since 1998, based on Indonesia. Fun Tav provides several tour packages that are already available. You can make custom tour packages according to your wishes.
                 </p>
             </div>
-            <small class="text-muted">Fun Tav</small>
+            <small className="text-muted">Fun Tav</small>
         </div>
     )
 }

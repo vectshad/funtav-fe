@@ -11,31 +11,36 @@ function Home() {
     const [perPage] = useState(5);
     const [pageCount, setPageCount] = useState(0);
 
-    const getPackages = async () => {
-        try {
-            const res = await axios.get("https://funtav-api.herokuapp.com/package");
-            const data = res.data;
-            
-            if (data) {
-                // console.log(data)
-                const slice = data.slice(offset, offset + perPage);
-                setPackages(slice);
-                setPageCount(Math.ceil(data.length / perPage));    
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
         setOffset(selectedPage * perPage)
     };
 
     useEffect(() => {
+        const getPackages = async () => {
+            try {
+                const res = await axios.get("https://funtav-api.herokuapp.com/package");
+                const data = res.data;
+                
+                if (data) {
+                    // console.log(data)
+                    const slice = data.slice(offset, offset + perPage);
+                    setPackages(slice);
+                    setPageCount(Math.ceil(data.length / perPage));    
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
         getPackages();
-      }, [offset])
+      }, [offset, perPage])
     
-    if (packages.length === 0) return null;
+    if (packages.length === 0) return (
+        <div>
+            <Navbar/>
+            <h1 className='mb-5 mt-3'>Fun Tav Travel and Tour</h1>
+        </div>
+    );
 
     return (
         <div>
