@@ -40,7 +40,7 @@ function Home() {
             <div className="Container">
                 {packages.map((pkg, index) => 
                     <div key={index} className="Package">
-                        <Link to={{pathname: `/${pkg.city}`}}>
+                        <Link to={{pathname: `/${pkg.id}`}}>
                             <img src={pkg.img} alt="package"/>
                         </Link>
                         <div className="Detail">
@@ -62,13 +62,15 @@ function Home() {
                                 <p>Person: {pkg.person}</p>
                             </div>
                             <div className='Transport'>
-                                <p>Transport: {pkg.person}</p>
+                                <p>Transport: {pkg.transport}</p>
                             </div>
                             <div className='Price'>
                                 <p>Price {pkg.price}</p>
                             </div>
                             <div className='Order'>
-                                <button>Order</button>
+                                <Link to={{pathname: `/${pkg.id}`}}>
+                                    <button>Order</button>
+                                </Link>
                             </div>
                         </div>
                     </div>

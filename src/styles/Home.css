@@ -47,17 +47,17 @@
 
 .Person {
     grid-row: 2;
-    grid-column: 8/10;
+    grid-column: 9/12;
 }
 
 .Price {
-    grid-row: 3;
-    grid-column: 8/12;
+    grid-row: 4;
+    grid-column: 2/6;
 }
 
 .Transport {
-    grid-row: 2;
-    grid-column: 10/12;
+    grid-row: 3;
+    grid-column: 9/12;
 }
 
 .Order {
@@ -98,24 +98,24 @@ img {
     color:white;
 }
 .pagination > .active > a{
-background-color: #5fb1e5 ;
-border-color: #5fb1e5 ;
-color: #fff;
+    background-color: #5fb1e5 ;
+    border-color: #5fb1e5 ;
+    color:white;
 }
 .pagination > li > a{
-border: 1px solid #5fb1e5 ;
-padding: 5px 10px;
-outline: none;
-cursor: pointer;
+    border: 1px solid #5fb1e5 ;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-background-color: #5fb1e5 ;
-border-color: #5fb1e5;
-outline: none ;
+    background-color: #5fb1e5 ;
+    border-color: #5fb1e5;
+    outline: none ;
 }
 .pagination > li > a, .pagination > li > span{
-color: #5fb1e5;
+    color: #5fb1e5;
 }
 .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-border-radius: unset
+    border-radius: unset    
 }
