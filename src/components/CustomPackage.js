@@ -58,7 +58,7 @@ function CustomPackage() {
                     <select onChange={e => setTransport(e.target.value)} className="form-control">
                         <option value={null}>Choose...</option>
                         <option>Car</option>
-                        <option>Plane</option>
+                        <option>Airplane</option>
                     </select>
                 </div>
                 <div className="form-group">
