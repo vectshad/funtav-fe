@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import Navbar from './Navbar';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import "../styles/Home.css";
 
 function Home() {
@@ -14,6 +13,21 @@ function Home() {
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
         setOffset(selectedPage * perPage)
+    };
+
+    const handleOrder = async (package_id) => {
+        const user_id = localStorage.getItem("user_id");
+
+        await axios.post('https://funtav-api.herokuapp.com/order', {
+            user_id: user_id,
+            package_id: package_id
+        })
+        .then((response) => {
+            console.log(response.data);
+            alert("New Order Added !");
+        }, (error) => {
+            console.log(error);
+        });
     };
 
     useEffect(() => {
@@ -49,9 +63,7 @@ function Home() {
             <div className="Container">
                 {packages.map((pkg, index) => 
                     <div key={index} className="Package">
-                        <Link to={{pathname: `/${pkg.id}`}}>
-                            <img src={pkg.img} alt="package"/>
-                        </Link>
+                        <img src={pkg.img} alt="package"/>
                         <div className="Detail">
                             <div className='City'>
                                 <h3>{pkg.city}</h3>
@@ -77,9 +89,7 @@ function Home() {
                                 <p>Price {pkg.price}</p>
                             </div>
                             <div className='Order'>
-                                <Link to={{pathname: `/${pkg.id}`}}>
-                                    <button>Order</button>
-                                </Link>
+                                <button onClick={() => handleOrder(pkg.id)}>Order</button>
                             </div>
                         </div>
                     </div>
