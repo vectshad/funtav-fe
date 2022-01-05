@@ -48,7 +48,7 @@ function MyPackages() {
             }
         }
         getOrders();
-      }, [offset])
+      }, [offset, perPage])
     
     useEffect(() => {
         const getPackages = () => {
