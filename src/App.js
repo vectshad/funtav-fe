@@ -9,6 +9,7 @@ import AboutUs from "./components/AboutUs";
 import PackageDetail from "./components/PackageDetail";
 import { ProtectedRoute } from './components/ProtectedRoute';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
