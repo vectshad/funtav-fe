@@ -14,7 +14,7 @@ Built in late 2021 – early 2022. The backend lives in [funtav-be](https://gith
 - React Bootstrap / Bootstrap 5
 - Axios for REST calls
 - react-paginate
-- Firebase Hosting, deployed by GitHub Actions on push to `main`
+- Firebase Hosting (the automatic GitHub Actions deploy was removed because its credentials no longer work)
 
 ## Features
 
